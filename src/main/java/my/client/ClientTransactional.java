@@ -7,6 +7,7 @@ import com.hazelcast.core.TransactionalMap;
 import com.hazelcast.transaction.TransactionException;
 import com.hazelcast.transaction.TransactionalTask;
 import com.hazelcast.transaction.TransactionalTaskContext;
+import my.Util;
 import my.server.Server1;
 
 /**
@@ -14,8 +15,7 @@ import my.server.Server1;
  */
 public class ClientTransactional {
   public static void main(String[] args) throws Exception {
-    ClientConfig clientConfig = new ClientConfig();
-    clientConfig.getNetworkConfig().addAddress("169.254.51.225:5701","169.254.51.225:5702");
+    ClientConfig clientConfig = Util.createClientConfig();
     HazelcastInstance node = HazelcastClient.newHazelcastClient(clientConfig);
     node.executeTransaction(new TransactionalTask<Object>() {
         @Override
