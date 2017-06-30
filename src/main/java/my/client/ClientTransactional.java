@@ -12,7 +12,7 @@ import my.server.Server1;
 /**
  * Created by ilya on 30.06.2017.
  */
-public class Client1 {
+public class ClientTransactional {
   public static void main(String[] args) throws Exception {
     ClientConfig clientConfig = new ClientConfig();
     clientConfig.getNetworkConfig().addAddress("169.254.51.225:5701","169.254.51.225:5702");
